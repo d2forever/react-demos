@@ -6,7 +6,7 @@ import ImageList from './ImageList';
 import { useCustomAxiosHook } from '../../shared/api/axios-hook';
 import ErrorModal from '../../shared/UIElements/ErrorModal';
 
-const RIKKEI_POST = "/";
+const RIKKEI_POST = "https://forum.rikkei.vn/index.php?threads/react-basic-handle-user-input-with-state-and-events-part-05.23";
 const BASE_URL = 'https://api.unsplash.com';
 const AUTHORIZATION = 'Client-ID eWoYQuDqo1n6kl_yCWBwcUlNEbWKs7RrvdmGFuIpC3g';
 
@@ -31,8 +31,14 @@ class HandleFormsEvents extends React.Component {
         params: { query: searchTerm, per_page: 8 }
       });
 
+      if(response.data.results.length === 0 && searchTerm !== '') {
+        throw new Error(`Can't found image with keyword '${searchTerm}'. Please try again!`);
+      }
+
       this.setState({ images: response.data.results });
-    } catch(err) {}
+    } catch(err) {
+      this.setState({ errors: [err.message] })
+    }
   }
 
   render() {

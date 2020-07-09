@@ -11,6 +11,8 @@ import Session7FormsEvents02 from './components/session-7-handle-forms-events-02
 import Session7FormsEvents03 from './components/session-7-handle-forms-events-03';
 import Session7FormsEvents04 from './components/session-7-handle-forms-events-04';
 import Session7FormsEvents05 from './components/session-7-handle-forms-events-05';
+import Session11Videos from './components/session-11-videos';
+import Session12Hooks from './components/session-12-hooks';
 
 const App = () => {
   return (
@@ -26,6 +28,8 @@ const App = () => {
         <Route exact path="/session-7-forms-events-03" component={Session7FormsEvents03} />
         <Route exact path="/session-7-forms-events-04" component={Session7FormsEvents04} />
         <Route exact path="/session-7-forms-events-05" component={Session7FormsEvents05} />
+        <Route exact path="/session-11-videos" component={Session11Videos} />
+        <Route exact path="/session-12-hooks" component={Session12Hooks} />
         <Redirect to="/" />
       </Switch>
     </Router>
