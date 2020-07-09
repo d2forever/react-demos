@@ -10,19 +10,22 @@ export const useCustomAxiosHook = (state, baseURL, authorization) => {
   });
 
   const handleErrors = error => {
-    if(error.response) {
-      if(error.response.data.errors) {
-        if(Array.isArray(error.response.data.errors)) {
-          state.setErrorsState(error.response.data.errors);
-        } else {
-          state.setErrorsState([error.response.data.errors]);
-        }
-      } else {
-        state.setErrorsState("SOMETHING WENT WRONG!!!");
-      }
-    } else {
-      state.setErrorsState([error.message]);
+    const errorResponse = error.response;
+
+    if(!errorResponse) {
+      return state.setErrorsState([error.message]);
     }
+
+    const dataErrors = error.response.data.errors;
+    if(!dataErrors) {
+      return state.setErrorsState("SOMETHING WENT WRONG!!!");
+    }
+
+    if(Array.isArray(dataErrors)) {
+      return state.setErrorsState(error.response.data.errors);
+    }
+
+    return state.setErrorsState([error.response.data.errors]);
   }
 
   axiosHook.interceptors.request.use(config => {
