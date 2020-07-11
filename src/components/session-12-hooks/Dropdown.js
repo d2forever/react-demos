@@ -1,17 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const Dropdown = ({ options, selected, onSelectedChange }) => {
+const Dropdown = ({ label, options, selected, onSelectedChange }) => {
   const [visible, setVisible] = useState(false);
   const ref = useRef();
-  const textRef = useRef();
 
   useEffect(() => {
     const onBodyClick = e => {
       if(ref.current.contains(e.target)) return;
       setVisible(false);
     }
-    document.body.addEventListener('click', e => () => onBodyClick(e));
-    onDropdownItemSelectHandler(selected);
+    document.body.addEventListener('click', onBodyClick);
 
     return () => {
       document.body.removeEventListener('click', onBodyClick);
@@ -27,22 +25,17 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
       <div
         key={option.value}
         className="item"
-        onClick={() => onDropdownItemSelectHandler(option)}
+        onClick={() => onSelectedChange(option)}
       >
         {option.label}
       </div>
     );
   });
 
-  const onDropdownItemSelectHandler = option => {
-    onSelectedChange(option);
-    textRef.current.style.color = option.value;
-  }
-
   return (
     <div className="ui form" ref={ref}>
       <div className="field">
-        <label className="label">Select a Color</label>
+        <label className="label">{label}</label>
         <div
           className={`ui selection dropdown ${visible ? 'visible active' : ''}`}
           onClick={() => setVisible(!visible)}
@@ -53,7 +46,7 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
             {renderedOptions}
           </div>
         </div>
-        <p ref={textRef}>This is a simple text</p>
+        <p>This is a simple text</p>
       </div>
     </div>
   )
