@@ -21,6 +21,14 @@ const POSTS = [
       {title: 'Auto call API when User typing && refactor code', path: '/session-7-forms-events-04'},
       {title: 'Show ERROR and create custom AXIOS', path: '/session-7-forms-events-05'}
     ]
+  },
+  {
+    title: 'Create videos app',
+    path: '/session-11-videos'
+  },
+  {
+    title: 'Start to learn Hook',
+    path: '/session-12-hooks'
   }
 ];
 
