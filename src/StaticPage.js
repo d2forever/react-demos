@@ -19,7 +19,8 @@ const POSTS = [
       {title: 'Understand about this in func AND invoke callback in Children', path: '/session-7-forms-events-02'},
       {title: 'Use AXIOS to call API and display in ImageList', path: '/session-7-forms-events-03'},
       {title: 'Auto call API when User typing && refactor code', path: '/session-7-forms-events-04'},
-      {title: 'Show ERROR and create custom AXIOS', path: '/session-7-forms-events-05'}
+      {title: 'Show ERROR and create custom AXIOS', path: '/session-7-forms-events-05'},
+      {title: 'Refactor axios-hook using HOC', path: '/session-7-forms-events-06'}
     ]
   },
   {
