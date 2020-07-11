@@ -4,14 +4,23 @@ const WAIT_INTERVAL = 500;
 const ENTER_KEY = 13;
 
 class SearchBar extends React.Component {
-  state = { searchTerm: '' };
+  state = { searchTerm: 'reactJS' };
   timer = null;
 
+  componentDidMount() {
+    this.onChangeTrigger();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // console.log('ready');
+    // if(prevState.searchTerm !== this.state.searchTerm) {
+    //   if(this.timer) clearTimeout(this.timer);
+    //   this.timer = setTimeout(this.onChangeTrigger, WAIT_INTERVAL);
+    // }
+  };
+
   onSearchHandler = event => {
-    if(this.timer) clearTimeout(this.timer);
-    this.setState({ searchTerm: event.target.value }, () => {
-      this.timer = setTimeout(this.onChangeTrigger, WAIT_INTERVAL);
-    });
+    this.setState({ searchTerm: event.target.value });
   };
 
   onKeyDownHandler = event => {

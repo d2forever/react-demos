@@ -31,6 +31,7 @@ export const useAxiosHOC = (baseURL, authorization) => WrappedComponent => {
       }, error => {
         this.setState({ isLoading: false });
         this.handleErrors(error);
+        return Promise.reject(error);
       });
 
       return axiosHook;

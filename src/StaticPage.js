@@ -20,7 +20,8 @@ const POSTS = [
       {title: 'Use AXIOS to call API and display in ImageList', path: '/session-7-forms-events-03'},
       {title: 'Auto call API when User typing && refactor code', path: '/session-7-forms-events-04'},
       {title: 'Show ERROR and create custom AXIOS', path: '/session-7-forms-events-05'},
-      {title: 'Refactor axios-hook using HOC', path: '/session-7-forms-events-06'}
+      {title: 'Refactor axios-hook using HOC', path: '/session-7-forms-events-06'},
+      {title: 'Change Class Component to Function Component', path: '/session-7-forms-events-07'},
     ]
   },
   {

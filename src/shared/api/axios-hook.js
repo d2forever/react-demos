@@ -41,6 +41,7 @@ export const useCustomAxiosHook = (state, baseURL, authorization) => {
   }, error => {
     state.setIsLoadingState(false);
     handleErrors(error);
+    return Promise.reject(error);
   });
 
   return { axiosHook };
